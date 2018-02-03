@@ -1,98 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Login V2</title>
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="<?=base_url()?>assets/images/icons/eyeSuggestionLogo.png" type="image/x-icon">
-
-    <title>Organization Name- Login</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="<?=base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="<?=base_url()?>assets/css/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="<?=base_url()?>assets/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="<?=base_url()?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
+<!--===============================================================================================-->
+	<link rel="shortcut icon" href="<?=base_url()?>assets/images/icons/eyeSuggestionLogo.png" type="image/x-icon">	
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/util.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/main.css">
+<!--===============================================================================================-->
 </head>
-
 <body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">        
+                
+				<form class="login100-form validate-form" role="form" method="post" onsubmit="return checkEmptyInput();" action="<?=base_url()?>authentication/login/">
+					<span class="login100-form-title p-b-26">
+						ยินดีต้อนรับ
+					</span>
+					<span class="login100-form-title p-b-48">
+                        <img src="<?=base_url()?>assets/images/icons/eyeSuggestionLogo.png" alt="Eye impact" width="66" height="56">
+					</span>
 
+					<div class="alert alert-danger" id="login-empty-input">
+                    	อีเมล์หรือรหัสผ่านต้องไม่ว่างเปล่า!
+                	</div>
+	            	<?php if($alert): ?>
+                	<div class="alert alert-warning" id="login-invalid-input">
+                    	อีเมลหรือรหัสผ่านที่ไม่ถูกต้อง!
+                	</div>
+                	<?php endif; ?>
 
-	<div class="container">
-	    <div class="row">
-	        <div class="col-md-4 col-md-offset-4">
-	            <div class="login-panel panel panel-default">
-	                <div class="panel-heading">
-	                    <h3 class="panel-title">Organization Name - Please Sign In</h3>
-	                </div>
-	                <div class="panel-body">
-	                	<small id="login-empty-input" class="error">email or password cannot be empty <br>&nbsp;</small>
-	                	<?php if($alert): ?>
-	                		<small id="login-invalid-input" class="error">invalid email or password<br>&nbsp;</small>
-	                	<?php endif; ?>
+					<div class="wrap-input100">
+						<input class="input100" id="email" name="email" type="email" autofocus>
+						<span class="focus-input100" data-placeholder="อีเมล์"></span>
+					</div>
 
-	                    <form role="form" method="post" onsubmit="return checkEmptyInput();" action="<?=base_url()?>authentication/login/">
-	                        <fieldset>
-	                            <div class="form-group">
-	                                <input class="form-control" id="email" placeholder="E-mail" name="email" type="email" autofocus>
-	                            </div>
-	                            <div class="form-group">
-	                                <input class="form-control" id="password" placeholder="Password" name="password" type="password" value="">
-	                            </div>
-	                            <div class="form-group">
-	                                <small><a href="#" onclick="alert('Please contact the administrator to reset your password!')">Forgot Password?</a></small>
-	                            </div>
-	                            <input id="login-submit" type="submit" value="Login" class="btn btn-lg btn-success btn-block">
-	                        </fieldset>
-	                    </form>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
+					<div class="wrap-input100">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" id="password" name="password" type="password" value="">
+						<span class="focus-input100" data-placeholder="รหัสผ่าน"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn" id="login-submit" type="submit">
+								Login
+							</button>
+						</div>
+					</div>
+
+					<div class="text-center p-t-115">
+                        <small><a href="#" onclick="alert('โปรดติดต่อผู้ดูแลระบบเพื่อรีเซ็ตรหัสผ่านของคุณ!')">ลืมรหัสผ่าน?</a></small>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
-
 	
 
-    <!-- jQuery -->
-    <script src="<?=base_url()?>assets/js/jquery.min.js"></script>
+	<!-- <div id="dropDownSelect1"></div> -->
+	
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/vendor/bootstrap/js/popper.js"></script>
+	<script src="<?=base_url()?>assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/vendor/daterangepicker/moment.min.js"></script>
+	<script src="<?=base_url()?>assets/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="<?=base_url()?>assets/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+    <script src="<?=base_url()?>assets/js/main.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?=base_url()?>assets/js/bootstrap.min.js"></script>
+<!-- check error login -->
+<script>
+    window.onload = hideLoginErrors();
+    function hideLoginErrors(){
+        $("#login-empty-input").hide();
+    }
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="<?=base_url()?>assets/js/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="<?=base_url()?>assets/js/sb-admin-2.js"></script>
-
-    <script>
-    	window.onload = hideLoginErrors();
-    	function hideLoginErrors(){
-    		$("#login-empty-input").hide();
-    	}
-
-		function checkEmptyInput(){
-			hideLoginErrors();
-			$("#login-invalid-input").hide();
-			if( $("#email").val() == '' || $("#password").val() == '' ){
-				$("#login-empty-input").show();
-				return false;
-			}
-		}
-	</script>
+    function checkEmptyInput(){
+        hideLoginErrors();
+        $("#login-invalid-input").hide();
+        if( $("#email").val() == '' || $("#password").val() == '' ){
+            $("#login-empty-input").show();
+            return false;
+        }
+    }
+</script>
 
 </body>
-
 </html>
