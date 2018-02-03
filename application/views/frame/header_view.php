@@ -28,7 +28,7 @@
     <link href="<?=base_url()?>assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom tab icons -->
-    <link rel="shortcut icon" href="<?=base_url()?>assets/images/codeigniter_logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?=base_url()?>assets/images/icons/eyeSuggestionLogo.png" type="image/x-icon">
     <link href="<?=base_url()?>assets/js/jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet" type="text/css" />
     <link href="<?=base_url()?>assets/js/jquery-ui-1.11.4.custom/jquery-ui-custom-datepicker.css" rel="stylesheet" type="text/css" />
     

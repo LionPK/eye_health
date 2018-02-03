@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="<?=base_url()?>assets/images/codeigniter_logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?=base_url()?>assets/images/icons/eyeSuggestionLogo.png" type="image/x-icon">
 
     <title>Organization Name- Login</title>
 
