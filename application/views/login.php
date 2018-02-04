@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V2</title>
+	<title>แอปพลิเคชันสำหรับประเมินผลกระทบทางด้านสุขภาพตา ด้วยเทคนิคการตรวจจับเวลาหน้าจอ</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
@@ -93,7 +93,7 @@
 		function checkEmptyInput(){
 			hideLoginErrors();
 			$("#login-invalid-input").hide();
-			if( $("#email").val() == '' || $("#password").val() == '' ){
+			if( $("#email").val() == '' || $("#password").val() == ''){
 				$("#login-empty-input").show();
 				return false;
 			}
