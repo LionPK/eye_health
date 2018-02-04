@@ -64,8 +64,28 @@
 						</div>
 					</div>
 
+					<div class="modal" id="forgot">
+						<div class="modal-dialog modal-sm">
+							<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">คำแนะนำ</h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							</div>
+							<div class="modal-body">
+								<p>โปรดติดต่อผู้ดูแลระบบเพื่อรีเซ็ตรหัสผ่านของคุณ!</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">
+								<strong>ดำเนินการต่อ</strong>
+								</button>
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+							</div>
+							</div>
+						</div>
+					</div>
 					<div class="text-center p-t-115">
-                        <small><a href="#" onclick="alert('โปรดติดต่อผู้ดูแลระบบเพื่อรีเซ็ตรหัสผ่านของคุณ!')">ลืมรหัสผ่าน?</a></small>
+						<small><a href="#" data-toggle="modal" data-target="#forgot">เปลี่ยนรหัสผ่าน?</a></small>
+                        <!-- <small><a href="#" onclick="alert('โปรดติดต่อผู้ดูแลระบบเพื่อรีเซ็ตรหัสผ่านของคุณ!')">ลืมรหัสผ่าน?</a></small> -->
 					</div>
 				</form>
 			</div>

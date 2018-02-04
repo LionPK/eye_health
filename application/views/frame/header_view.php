@@ -51,7 +51,10 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?=base_url();?>">
-                    <div class="inline"> &nbsp;Organization Name </div>
+                    <div class="inline"> &nbsp;
+                        <img src="<?=base_url()?>assets/images/icons/eyeSuggestionLogo.png" alt="Eye impact" width="33" height="27">
+                        &nbsp;AEHE SYSTEM 
+                    </div>
                 </a>
 
             </div>
@@ -63,41 +66,41 @@
                         <i id="header-icon" class="fa fa-user fa-fw"></i>  <i id="header-icon" class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#" data-toggle="modal" data-target="#changePasswordModal"><i class="fa fa-refresh fa-fw"></i> Change Password</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#changePasswordModal"><i class="fa fa-refresh fa-fw"></i> เปลี่ยนรหัสผ่าน</a></li>
                         <li class="divider"></li>
-                        <li><a href="<?=base_url();?>authentication/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                        <li><a href="<?=base_url();?>authentication/logout"><i class="fa fa-sign-out fa-fw"></i> ออกจากระบบ</a></li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
             </ul>
             <div class=" navbar-brand navbar-right navbar-access-level"> 
-                Access Level: <?=ucfirst($this->session->userdata('role'));?>
+                ระดับการเข้าถึง: <?=ucfirst($this->session->userdata('role'));?>
                 &nbsp;
             </div>
             <!-- /.navbar-top-links -->
 
 
-            <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header modal-blue">
+                    <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">CHANGE PASSWORD (<?=$this->session->userdata('email')?>)</h4>
+                        <h4 class="modal-title" id="myModalLabel">เปลี่ยนรหัสผ่าน (<?=$this->session->userdata('email')?>)</h4>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <label class="error" id="error_changePassword">invalid current password</label>
-                                <label class="error" id="error_changePassword2">password must be at least 8 characters (alphanumeric or special characters)</label>
+                                <label class="error" id="error_changePassword">รหัสผ่านปัจจุบันไม่ถูกต้อง</label>
+                                <label class="error" id="error_changePassword2">รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร (ตัวเลขและตัวอักษรพิเศษ)</label>
                             </div>
                         </div>
                         &nbsp;
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label>Current Password</label> &nbsp;&nbsp;
-                                    <label class="error" id="error_currentPassword"> field is required.</label>
+                                    <label>รหัสผ่านปัจจุบัน</label> &nbsp;&nbsp;
+                                    <label class="error" id="error_currentPassword"> ต้องระบุ</label>
                                     <input class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword" type="password" autofocus>
                                 </div> 
                             </div>
@@ -105,15 +108,15 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>New Password</label> &nbsp;&nbsp;
-                                    <label class="error" id="error_newPassword"> field is required.</label>
-                                    <label class="error" id="error_newPassword2"> password not match</label>
+                                    <label>รหัสผ่านใหม่</label> &nbsp;&nbsp;
+                                    <label class="error" id="error_newPassword"> ต้องระบุ</label>
+                                    <label class="error" id="error_newPassword2"> รหัสผ่านไม่ตรงกัน</label>
                                     <input class="form-control" id="newPassword" placeholder="New Password" name="newPassword" type="password" autofocus>
                                 </div> 
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Confirm New Password</label> &nbsp;&nbsp;
+                                    <label>ยืนยันรหัสผ่านใหม่</label> &nbsp;&nbsp;
                                     <input class="form-control" id="confirmNewPassword" placeholder="Confirm New Password" name="confirmNewPassword" type="password" autofocus>
                                 </div> 
                             </div>
@@ -121,8 +124,8 @@
                         
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
-                        <button id="changePasswordSubmit" type="button" class="btn btn-primary">UPDATE</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+                        <button id="changePasswordSubmit" type="button" class="btn btn-primary">ปรับปรุง</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
