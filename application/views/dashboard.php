@@ -13,11 +13,11 @@
 		<?php endif;?>
 		<div class="row">
 			<div class="col-lg-12">
-				<h3 class="page-header">Dashboard</h3>
+				<h3 class="page-header">แดชบอร์ด</h3>
 			</div>
 			<div class="col-lg-12">
 				<div class="row text-center">
-					Dashboard Content..
+					เนื้อหาในหน้าแดชบอร์ด..
 				</div>
 			</div>
 			<!-- /.col-lg-12 -->

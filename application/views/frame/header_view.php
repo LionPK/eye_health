@@ -52,7 +52,7 @@
                 </button>
                 <a class="navbar-brand" href="<?=base_url();?>">
                     <div class="inline"> &nbsp;
-                        <img src="<?=base_url()?>assets/images/icons/eyeSuggestionLogo.png" alt="Eye impact" width="33" height="27">
+                        <img src="<?=base_url()?>assets/images/icons/eyeSuggestionLogo.png" alt="Eye impact" width="23" height="23">
                         &nbsp;AEHE SYSTEM 
                     </div>
                 </a>

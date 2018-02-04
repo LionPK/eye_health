@@ -23,9 +23,9 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-user-list">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
+                                <th>ชื่อ</th>
+                                <th>อีเมล์</th>
+                                <th>บทบาท</th>
                                 <th>&nbsp;</th>
                             </tr>
                         </thead>
@@ -37,9 +37,9 @@
                                 <td><?php echo ucfirst($row->role) ?></td> 
                                 
                                 <td>
-                                    <a class="btn btn-primary" id="user-edit"  onclick="edit_user_popup('<?=$row->email?>','<?=$row->user_id?>','<?=$row->name?>','<?=$row->role?>');" data-toggle="modal" data-target="#editUser"> EDIT </a>
-                                    <a class="btn btn-warning" id="user-riset" onclick="reset_confirmation('<?=$row->email?>','<?=$row->user_id?>')" data-toggle="modal" data-target="#resetConfirm"> RESET </a>
-                                    <a class="btn btn-danger" id="user-delete" onclick="deactivate_confirmation('<?=$row->email?>','<?=$row->user_id?>');" data-toggle="modal" data-target="#deactivateConfirm"> DELETE </a>
+                                    <a class="btn btn-primary" id="user-edit"  onclick="edit_user_popup('<?=$row->email?>','<?=$row->user_id?>','<?=$row->name?>','<?=$row->role?>');" data-toggle="modal" data-target="#editUser"> แก้ไข </a>
+                                    <a class="btn btn-warning" id="user-riset" onclick="reset_confirmation('<?=$row->email?>','<?=$row->user_id?>')" data-toggle="modal" data-target="#resetConfirm"> รีเซ็ต </a>
+                                    <a class="btn btn-danger" id="user-delete" onclick="deactivate_confirmation('<?=$row->email?>','<?=$row->user_id?>');" data-toggle="modal" data-target="#deactivateConfirm"> ลบ </a>
                                     
                                 </td>
 
@@ -65,17 +65,17 @@
         <div class="modal fade" id="deactivateConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header modal-red">
+                    <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">DELETE CONFIRMATION</h4>
+                        <h4 class="modal-title" id="myModalLabel">ยืนยันการลบข้อมูล</h4>
                     </div>
                     <div class="modal-body">
-                        <label>You are going to delete user <label id="user-email" style="color:blue;"></label>.</label><br/>
-                        <label>Click <b>Yes</b> to continue.</label>
+                        <label>คุณกำลังจะลบการใช้งาน <label id="user-email" style="color:blue;"></label>.</label><br/>
+                        <label>คลิก <b>ตกลง</b> เพื่อดำเนินการต่อไป</label>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <a id="deactivateYesButton" class="btn btn-danger" >Yes</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+                        <a id="deactivateYesButton" class="btn btn-danger" >ตกลง</a>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -88,14 +88,14 @@
         <div class="modal fade" id="resetConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header modal-red">
+                    <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">RESET CONFIRMATION</h4>
+                        <h4 class="modal-title" id="myModalLabel">ยืนยันการรีเซ็ต</h4>
                     </div>
                     <div class="modal-body">
-                        <label>You are going to reset user <label id="reset-user-email" style="color:blue;"></label>'s password.</label><br/>
-                        <label>Tempolary password will be sent to this email.</label><br/>
-                        <label>Click <b>Yes</b> to continue.</label>
+                        <label>คุณจะรีเซ็ตรหัสผ่านของผู้ใช้ <label id="reset-user-email" style="color:blue;"></label></label><br/>
+                        <label>รหัสผ่านชั่วคราวจะถูกส่งไปที่อีเมลนี้</label><br/>
+                        <label>คลิก <b>ตกลง</b> เพื่อดำเนินการต่อไป</label>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -114,26 +114,26 @@
         <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header modal-blue">
+                    <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">CREATE NEW USER</h4>
+                        <h4 class="modal-title" id="myModalLabel">สร้างผู้ใช้ใหม่</h4>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Name</label> &nbsp;&nbsp;
-                                    <label class="error" id="error_name"> field is required.</label>
-                                    <label class="error" id="error_name2"> name must be alphanumeric.</label>
+                                    <label>ชื่อ</label> &nbsp;&nbsp;
+                                    <label class="error" id="error_name"> ต้องระบุ</label>
+                                    <label class="error" id="error_name2"> ชื่อต้องเป็นตัวเลขและตัวอักษร</label>
                                     <input class="form-control" id="name" placeholder="Name" name="name" type="text" autofocus>
                                 </div> 
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Email</label> &nbsp;&nbsp;
-                                    <label class="error" id="error_email"> field is required.</label>
-                                    <label class="error" id="error_email2"> email has already exist.</label>
-                                    <label class="error" id="error_email3"> invalid email adress.</label>
+                                    <label>อีเมล์</label> &nbsp;&nbsp;
+                                    <label class="error" id="error_email"> ต้องระบุ</label>
+                                    <label class="error" id="error_email2"> มีอีเมล์อยู่แล้ว</label>
+                                    <label class="error" id="error_email3"> ที่อยู่อีเมล์ที่ไม่ถูกต้อง.</label>
                                     <input class="form-control" id="email" placeholder="E-mail" name="email" type="email" autofocus>
                                 </div> 
                             </div>
@@ -142,11 +142,11 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Role</label>&nbsp;&nbsp;
-                                    <label class="error" id="error_role"> field is required.</label>
+                                    <label class="error" id="error_role"> ต้องระบุ</label>
                                     <select name="role" id="role" class="form-control" >
-                                        <option value="0" selected="selected">-- SELECT ROLE --</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="user">User</option>
+                                        <option value="0" selected="selected">-- กรุณาเลือกบทบาท --</option>
+                                        <option value="admin">ผู้ดูแลระบบ</option>
+                                        <option value="user">ผู้ใช้งาน</option>
                                     </select> 
                                 </div>
                             </div>
@@ -154,8 +154,8 @@
                         
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
-                        <button id="newUserSubmit" type="button" class="btn btn-primary">CREATE</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+                        <button id="newUserSubmit" type="button" class="btn btn-primary">สร้าง</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -168,27 +168,27 @@
         <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header modal-blue">
+                    <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">UPDATE USER DETAILS</h4>
+                        <h4 class="modal-title" id="myModalLabel">ปรับปรุงข้อมูลผู้ใช้งาน</h4>
                     </div>
                     <div class="modal-body">
                         <input type="hidden"  id="edit-user-id" value=""/>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Name</label> &nbsp;&nbsp;
-                                    <label class="error" id="edit-error_name"> field is required.</label>
-                                    <label class="error" id="edit-error_name2"> name must be alphanumeric.</label>
+                                    <label>ชื่อ</label> &nbsp;&nbsp;
+                                    <label class="error" id="edit-error_name"> ต้องระบุ</label>
+                                    <label class="error" id="edit-error_name2"> ชื่อต้องเป็นตัวเลขและตัวอักษร</label>
                                     <input class="form-control" id="edit-name" placeholder="Name" name="edit-name" type="text" autofocus>
                                 </div> 
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>Email</label> &nbsp;&nbsp;
-                                    <label class="error" id="edit-error_email"> field is required.</label>
-                                    <label class="error" id="edit-error_email2"> email has already exist.</label>
-                                    <label class="error" id="edit-error_email3"> invalid email adress.</label>
+                                    <label class="error" id="edit-error_email"> ต้องระบุ</label>
+                                    <label class="error" id="edit-error_email2"> มีอีเมล์อยู่แล้ว</label>
+                                    <label class="error" id="edit-error_email3"> ที่อยู่อีเมล์ที่ไม่ถูกต้อง.</label>
                                     <input class="form-control" id="edit-email" placeholder="E-mail" name="edit-email" type="email" autofocus>
                                 </div> 
                             </div>
@@ -197,7 +197,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Role</label>&nbsp;&nbsp;
-                                    <label class="error" id="edit-error_role"> field is required.</label>
+                                    <label class="error" id="edit-error_role"> ต้องระบุ</label>
                                     <select name="role" id="edit-role" class="form-control" >
                                     </select> 
                                 </div>
@@ -206,8 +206,8 @@
                         
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
-                        <button id="editUserSubmit" type="button" class="btn btn-primary">UPDATE</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+                        <button id="editUserSubmit" type="button" class="btn btn-primary">ปรับปรุง</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->

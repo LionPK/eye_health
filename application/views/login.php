@@ -64,6 +64,7 @@
 						</div>
 					</div>
 
+					<!-- alert model -->
 					<div class="modal" id="forgot">
 						<div class="modal-dialog modal-sm">
 							<div class="modal-content">

@@ -2,7 +2,7 @@
 <div class="sidebar-nav navbar-collapse">
     <ul class="nav" id="side-menu">
         <li>
-            <?php echo '<p class="welcome"><b> <text style="font-size:150%;">&#9786</text> <i>Welcome </i>' . $this->session->userdata('name') . "!</b></p>"; ?>
+            <?php echo '<p class="welcome"><b> <text style="font-size:150%;">&#9786</text> <i>ยินดีต้อนรับ </i>' . $this->session->userdata('name') . "!</b></p>"; ?>
         </li>
         <li>
             <a href="<?=base_url()?>"><i class="fa fa-home fa-fw"></i> แดชบอร์ด</a>

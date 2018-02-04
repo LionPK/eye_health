@@ -20,10 +20,10 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-user-log-advance">
                                     <thead>
                                         <tr>
-                                            <th>Date & Time</th>
-                                            <th>Activities</th>
-                                            <th>User</th>
-                                            <th>Module</th>
+                                            <th>วัน & เวลา</th>
+                                            <th>กิจกรรม</th>
+                                            <th>ผู้ใช้งาน</th>
+                                            <th>โมดูล</th>
                                         </tr>
                                     </thead>
                                     <tbody></tbody>
