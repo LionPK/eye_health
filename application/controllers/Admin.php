@@ -46,7 +46,7 @@ class Admin extends CI_Controller {
         $postData = $this->input->post();
         $insert = $this->admin_model->insert_user($postData);
         if($insert['status'] == 'success')
-            $this->session->set_flashdata('success', 'User '.$postData['email'].' has been successfully created!');
+            $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$postData['email'].' ได้รับการสร้างสำเร็จแล้ว!');
 
         echo json_encode($insert);
     }
@@ -57,7 +57,7 @@ class Admin extends CI_Controller {
         $postData = $this->input->post();
         $update = $this->admin_model->update_user_details($postData);
         if($update['status'] == 'success')
-            $this->session->set_flashdata('success', 'User '.$postData['email'].'`s details have been successfully updated!');
+            $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$postData['email'].' ได้รับการปรับปรุงรายละเอียดเรียบร้อยแล้ว!');
 
         echo json_encode($update);
     }
@@ -67,7 +67,7 @@ class Admin extends CI_Controller {
 
         $update = $this->admin_model->deactivate_user($email,$id);
         if($update['status'] == 'success')
-            $this->session->set_flashdata('success', 'User '.$email.' has been successfully deleted!');
+            $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$email.' ถูกลบเรียบร้อยแล้ว!');
 
         echo json_encode($update);
     }
@@ -77,7 +77,7 @@ class Admin extends CI_Controller {
 
         $update = $this->admin_model->reset_user_password($email,$id);
         if($update['status'] == 'success')
-            $this->session->set_flashdata('success', 'User '.$email.'`s password has been successfully reset!');
+            $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$email.' ตั้งรหัสผ่านใหม่แล้ว!');
 
         echo json_encode($update);
     }

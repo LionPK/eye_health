@@ -93,13 +93,13 @@
                         <h4 class="modal-title" id="myModalLabel">ยืนยันการรีเซ็ต</h4>
                     </div>
                     <div class="modal-body">
-                        <label>คุณจะรีเซ็ตรหัสผ่านของผู้ใช้ <label id="reset-user-email" style="color:blue;"></label></label><br/>
+                        <label>คุณจะรีเซ็ตรหัสผ่านของผู้ใช้ <label id="reset-user-email" style="color:blue;"></label>.</label><br/>
                         <label>รหัสผ่านชั่วคราวจะถูกส่งไปที่อีเมลนี้</label><br/>
                         <label>คลิก <b>ตกลง</b> เพื่อดำเนินการต่อไป</label>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <a id="resetYesButton" class="btn btn-warning" >Yes</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+                        <a id="resetYesButton" class="btn btn-warning" >ตกลง</a>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -141,7 +141,7 @@
                       <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label>Role</label>&nbsp;&nbsp;
+                                    <label>บทบาท</label>&nbsp;&nbsp;
                                     <label class="error" id="error_role"> ต้องระบุ</label>
                                     <select name="role" id="role" class="form-control" >
                                         <option value="0" selected="selected">-- กรุณาเลือกบทบาท --</option>
@@ -185,7 +185,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Email</label> &nbsp;&nbsp;
+                                    <label>อีเมล์</label> &nbsp;&nbsp;
                                     <label class="error" id="edit-error_email"> ต้องระบุ</label>
                                     <label class="error" id="edit-error_email2"> มีอีเมล์อยู่แล้ว</label>
                                     <label class="error" id="edit-error_email3"> ที่อยู่อีเมล์ที่ไม่ถูกต้อง.</label>
@@ -196,7 +196,7 @@
                       <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label>Role</label>&nbsp;&nbsp;
+                                    <label>บทบาท</label>&nbsp;&nbsp;
                                     <label class="error" id="edit-error_role"> ต้องระบุ</label>
                                     <select name="role" id="edit-role" class="form-control" >
                                     </select> 

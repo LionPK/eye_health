@@ -55,7 +55,7 @@ class Authentication extends CI_Controller {
         $postData = $this->input->post();
         $update = $this->authentication_model->change_password($postData);
         if($update['status'] == 'success')
-            $this->session->set_flashdata('success', 'Your password has been successfully changed!');
+            $this->session->set_flashdata('success', 'รหัสผ่านของคุณถูกเปลี่ยนเรียบร้อยแล้ว!');
 
         echo json_encode($update);
     }
