@@ -84,7 +84,7 @@
                               <div style="margin:0 0 15px 0"><br>
                               </div>
                               <div style="margin:0 0 15px 0">
-                                <p style="margin:0;word-wrap:normal;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:normal;color:#999;line-height:20px;padding:0;text-align:center"> &copy; 2017 <a href="www.rudiliu.com">Rudi Liu</></p>
+                                <p style="margin:0;word-wrap:normal;font-family:Helvetica,Arial,sans-serif;font-size:12px;font-weight:normal;color:#999;line-height:20px;padding:0;text-align:center"> &copy; 2018 <a href="https://www.linkedin.com/in/lion-percival-albus-468542136/">Praneed Klanboon</></p>
                                
                               </div>
                             </td>

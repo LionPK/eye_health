@@ -24,12 +24,18 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<!--alert display-->        
-				<div class="alert alert-danger" id="login-empty-input">
-                    อีเมล์หรือรหัสผ่านต้องไม่ว่างเปล่า!
+				<div class="alert alert-danger alert-dismissible fade show" role="alert" id="login-empty-input">
+					<strong>กรุณากรอกข้อมูล</strong>ให้ครบ!
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
                 </div>
 	            <?php if($alert): ?>
-                <div class="alert alert-warning" id="login-invalid-input">
-                    อีเมลหรือรหัสผ่านที่ไม่ถูกต้อง!
+                <div class="alert alert-warning alert-dismissible fade show" role="alert" id="login-invalid-input">
+                    <strong>ข้อมูล</strong>ไม่ถูกต้อง!
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
                 </div>
 				<?php endif; ?>
 					
@@ -51,7 +57,7 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" id="password" name="password" type="password" value="">
+						<input class="input100" id="password" name="password" type="password" value="" >
 						<span class="focus-input100" data-placeholder="รหัสผ่าน"></span>
 					</div>
 

@@ -49,6 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+//กำหนดให้ไปเรียก controllers ที่ชื่อว่า authentication
 $route['default_controller'] = 'authentication';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -14,7 +14,7 @@ class Admin_model extends CI_Model {
     function get_user_list(){
         $this->db->select('*');
         $this->db->from('user');
-        $this->db->where('status', 1);
+        $this->db->where('status', 1); //แสดงข้อมูลของผู้ใช้งานที่มี status เป็น 1
         $query=$this->db->get();
         return $query->result();
     }
@@ -54,12 +54,13 @@ class Admin_model extends CI_Model {
             );
             $this->db->insert('user', $data);
 
-            $message = "Here is your account details:<br><br>Email: ".$postData['email']."<br>Tempolary password: ".$password."<br>Please change your password after login.<br><br> you can login at ".base_url().".";
+            $message = "นี่คือรายละเอียดบัญชีของคุณ:<br><br>อีเมล์: ".$postData['email']."<br>รหัสผ่านชั่วคราว: ".$password."<br>โปรดเปลี่ยนรหัสผ่านของคุณหลังจากเข้าสู่ระบบ<br><br> คุณสามารถเข้าสู่ระบบได้ที่ ".base_url().".";
+            // $subject = "การสร้างบัญชีใหม่";
             $subject = "New Account Creation";
             $this->send_email($message,$subject,$postData['email']);
 
-            $module = "User Management";
-            $activity = "add new user ".$postData['email'];
+            $module = "การจัดการผู้ใช้งาน";
+            $activity = "เพิ่มผู้ใช้งานใหม่ ".$postData['email'];
             $this->insert_log($activity, $module);
             return array('status' => 'success', 'message' => '');
 
@@ -89,8 +90,8 @@ class Admin_model extends CI_Model {
 
             $record = "(".$oldData[0]['email']." to ".$postData['email'].", ".$oldData[0]['name']." to ".$postData['name'].",".$oldData[0]['role']." to ".$postData['role'].")";
 
-            $module = "User Management";
-            $activity = "update user ".$oldData[0]['email']."`s details ".$record;
+            $module = "การจัดการผู้ใช้งาน";
+            $activity = "ปรับปรุงผู้ใช้งาน ".$oldData[0]['email']."โดยมีรายละเอียด ".$record;
             $this->insert_log($activity, $module);
             return array('status' => 'success', 'message' => $record);
         }else{
@@ -108,8 +109,8 @@ class Admin_model extends CI_Model {
         $this->db->where('user_id', $id);
         $this->db->update('user', $data);
 
-        $module = "User Management";
-        $activity = "delete user ".$email;
+        $module = "การจัดการผู้ใช้งาน";
+        $activity = "ลบผู้ใช้งาน ".$email;
         $this->insert_log($activity, $module);
         return array('status' => 'success', 'message' => '');
 
@@ -124,12 +125,13 @@ class Admin_model extends CI_Model {
         $this->db->where('user_id', $id);
         $this->db->update('user', $data);
 
-        $message = "Your account password has been reset.<br><br>Email: ".$email."<br>Tempolary password: ".$password."<br>Please change your password after login.<br><br> you can login at ".base_url().".";
+        $message = "รีเซ็ตรหัสผ่านบัญชีของคุณแล้ว<br><br>อีเมล์: ".$email."<br>รหัสผ่านชั่วคราว: ".$password."<br>โปรดเปลี่ยนรหัสผ่านของคุณหลังจากเข้าสู่ระบบ<br><br> คุณสามารถเข้าสู่ระบบได้ที่ ".base_url().".";
+        // $subject = "รีเซ็ตรหัสผ่าน";
         $subject = "Password Reset";
         $this->send_email($message,$subject,$email);
 
-        $module = "User Management";
-        $activity = "reset user ".$email."`s password";
+        $module = "การจัดการผู้ใช้งาน";
+        $activity = "รีเซ็ตรหัสผ่านของผู้ใช้งาน ".$email;
         $this->insert_log($activity, $module);
         return array('status' => 'success', 'message' => '');
 
@@ -155,15 +157,15 @@ class Admin_model extends CI_Model {
     }
 
     function get_activity_log(){
-       /* Array of database columns which should be read and sent back to DataTables. Use a space where
-         * you want to insert a non-database field (for example a counter or static image)
-         */
+        /*Array ของ columns ในฐานข้อมูลควรจะถูกอ่านและส่งกลับไปยัง DataTables
+         *ใช้พื้นที่ที่ต้องการนำ field เข้าที่ไม่มีอยู่ใน database เช่น counter หรือ static image
+        */
         
         $aColumns = array('date_time', 'activity', 'email', 'module');
         $aColumnsWhere = array('activity_log.created_at', 'activity', 'email', 'module');
         $aColumnsJoin = array('activity_log.created_at as date_time', 'activity', 'email', 'module');
 
-        // DB table to use
+        // ชื่อ DB ที่ใช้งาน
         $sTable = 'activity_log';
     
         $iDisplayStart = $this->input->get_post('iDisplayStart', true);
@@ -199,9 +201,9 @@ class Admin_model extends CI_Model {
         
         /* 
          * Filtering
-         * NOTE this does not match the built-in DataTables filtering which does it
-         * word by word on any field. It's possible to do here, but concerned about efficiency
-         * on very large tables, and MySQL's regex functionality is very limited
+         * โปรดทราบว่าไม่ได้เป็นตัวกรองข้อมูลในตัว DataTables ที่ใช้คำใดในฟิลด์
+         * เป็นไปได้ที่จะทำที่นี่ แต่ความกังวลเกี่ยวกับประสิทธิภาพในตารางที่มีขนาดใหญ่มาก
+         * และฟังก์ชันการทำงาน regex ของ MySQL มีข้อ จำกัดมาก
          */
         if(isset($sSearch) && !empty($sSearch))
         {
@@ -209,7 +211,7 @@ class Admin_model extends CI_Model {
             {
                 $bSearchable = $this->input->get_post('bSearchable_'.$i, true);
                 
-                // Individual column filtering
+                // การกรองคอลัมน์แต่ละรายการ
                 if(isset($bSearchable) && $bSearchable == 'true')
                 {
                     $this->db->or_like($aColumnsWhere[$i], $this->db->escape_like_str($sSearch));
@@ -218,16 +220,16 @@ class Admin_model extends CI_Model {
             }
         }
         
-        // Select Data
+        // เลือกข้อมูล
         $this->db->join('user', 'activity_log.fk_user_id = user.user_id', 'left');
         $this->db->select('SQL_CALC_FOUND_ROWS '.str_replace(' , ', ' ', implode(', ', $aColumnsJoin)), false);
         $rResult = $this->db->get($sTable);
     
-        // Data set length after filtering
+        // ความยาวชุดข้อมูลหลังจากการกรอง
         $this->db->select('FOUND_ROWS() AS found_rows');
         $iFilteredTotal = $this->db->get()->row()->found_rows;
     
-        // Total data set length
+        // ความยาวชุดข้อมูลทั้งหมด
         $iTotal = $this->db->count_all($sTable);
     
         // Output
@@ -273,20 +275,21 @@ class Admin_model extends CI_Model {
             $mail->Username = GUSER;  
             $mail->Password = GPWD;     
             $mail->SetFrom(GUSER, 'Administrator');
+            // $mail->Subject = "แจ้งเตือน - ".$subject;
             $mail->Subject = "DO NOT REPLY - ".$subject;
             $mail->IsHTML(true);   
             $mail->WordWrap = 0;
 
 
-            $hello = '<h1 style="color:#333;font-family:Helvetica,Arial,sans-serif;font-weight:300;padding:0;margin:10px 0 25px;text-align:center;line-height:1;word-break:normal;font-size:38px;letter-spacing:-1px">Hello, &#9786;</h1>';
-            $thanks = "<br><br><i>This is autogenerated email please do not reply.</i><br/><br/>Thanks,<br/>Admin<br/><br/>";
+            $hello = '<h1 style="color:#333;font-family:Helvetica,Arial,sans-serif;font-weight:300;padding:0;margin:10px 0 25px;text-align:center;line-height:1;word-break:normal;font-size:38px;letter-spacing:-1px">สวัสดีผู้ใช้งาน, &#9786;</h1>';
+            $thanks = "<br><br><i>นี่เป็นอีเมล์ที่สร้างโดยอัตโนมัติโปรดอย่าตอบ</i><br/><br/>ขอบคุณ,<br/>ผู้ดูแลระบบ<br/><br/>";
 
-            $body = $hello.$message.$thanks;
+            $body = $hello.$message.$thanks; //คำสั่งที่ประกอบข้อความในส่วนเนื้อหาของ email
             $mail->Body = $header.$body.$footer;
             $mail->AddAddress($sendTo);
 
             if(!$mail->Send()) {
-                $error = 'Mail error: '.$mail->ErrorInfo;
+                $error = 'เกิดข้อผิดพลาดในการส่งอีเมล์: '.$mail->ErrorInfo;
                 return array('status' => false, 'message' => $error);
             } else { 
                 return array('status' => true, 'message' => '');
@@ -294,12 +297,12 @@ class Admin_model extends CI_Model {
         }
         catch (phpmailerException $e)
         {
-            $error = 'Mail error: '.$e->errorMessage();
+            $error = 'เกิดข้อผิดพลาดในการส่งอีเมล์: '.$e->errorMessage();
             return array('status' => false, 'message' => $error);
         }
         catch (Exception $e)
         {
-            $error = 'Mail error: '.$e->getMessage();
+            $error = 'เกิดข้อผิดพลาดในการส่งอีเมล์: '.$e->getMessage();
             return array('status' => false, 'message' => $error);
         }
         

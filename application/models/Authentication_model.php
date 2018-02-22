@@ -40,8 +40,9 @@ class Authentication_model extends CI_Model {
             $this->db->where('user_id', $this->session->userdata('user_id'));
             $this->db->update('user', $data);
 
-            $module = "Change Password";
-            $activity = "change its own password";
+            // $module = "Change Password";
+            $module = "เปลี่ยนรหัสผ่าน";
+            $activity = "เปลี่ยนรหัสผ่านของตนเอง";
             $this->admin_model->insert_log($activity, $module);
             return array('status' => 'success', 'message' => '');
         }else{

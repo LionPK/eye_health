@@ -65,5 +65,23 @@ class Authentication extends CI_Controller {
         redirect(base_url());
     }
 
+        // public function validate(){
+    //     $this->form_validation->set_rules(
+    //         'email',
+    //         '','required',array("กรุณากรอกข้อมูลอีเมล์")
+    //     );
+
+    //     $this->form_validation->set_rules(
+    //         'password',
+    //         '','required',array("กรุณากรอกข้อมูลรหัสผ่าน")
+    //     );
+
+    //     if($this->form_validation->run() == FALSE){
+    //         $this->load->view('login');
+    //     }else{
+
+    //     }
+    // }
+
 
 }

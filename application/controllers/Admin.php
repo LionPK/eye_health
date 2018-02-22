@@ -25,13 +25,14 @@ class Admin extends CI_Controller {
             redirect(base_url());
         }
     }
-
+    
+    //controller ของหน้า user list
     public function user_list(){
 
         $data = array(
-            'formTitle' => 'User Management',
-            'title' => 'User Management',
-            'users' => $this->admin_model->get_user_list(),
+            'formTitle' => 'การจัดการผู้ใช้งาน',
+            'title' => 'การจัดการผู้ใช้งาน',
+            'users' => $this->admin_model->get_user_list(), //เรียก model function ที่ชื่อว่า get_user_list
         );
 
         $this->load->view('frame/header_view');
@@ -44,18 +45,18 @@ class Admin extends CI_Controller {
         $this->ajax_checking();
 
         $postData = $this->input->post();
-        $insert = $this->admin_model->insert_user($postData);
+        $insert = $this->admin_model->insert_user($postData); //ไปเรียก model function ที่ชื่อว่า insert_user
         if($insert['status'] == 'success')
             $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$postData['email'].' ได้รับการสร้างสำเร็จแล้ว!');
 
-        echo json_encode($insert);
+        echo json_encode($insert); //แปลงค่าที่เราส่งให้ (argument) ให้ออกมาเป็น json
     }
 
     function update_user_details(){
         $this->ajax_checking();
 
         $postData = $this->input->post();
-        $update = $this->admin_model->update_user_details($postData);
+        $update = $this->admin_model->update_user_details($postData);//ไปเรียก model function ที่ชื่อว่า update_user_details
         if($update['status'] == 'success')
             $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$postData['email'].' ได้รับการปรับปรุงรายละเอียดเรียบร้อยแล้ว!');
 
@@ -65,7 +66,7 @@ class Admin extends CI_Controller {
     function deactivate_user($email,$id){
         $this->ajax_checking();
 
-        $update = $this->admin_model->deactivate_user($email,$id);
+        $update = $this->admin_model->deactivate_user($email,$id); //ไปเรียก model function ที่ชื่อว่า deactivate_user
         if($update['status'] == 'success')
             $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$email.' ถูกลบเรียบร้อยแล้ว!');
 
@@ -75,17 +76,19 @@ class Admin extends CI_Controller {
     function reset_user_password($email,$id){
         $this->ajax_checking();
 
-        $update = $this->admin_model->reset_user_password($email,$id);
+        $update = $this->admin_model->reset_user_password($email,$id); //ไปเรียก model function ที่ชื่อว่า reset_user_password
         if($update['status'] == 'success')
-            $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$email.' ตั้งรหัสผ่านใหม่แล้ว!');
+            $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$email.' ได้รับการตั้งรหัสผ่านใหม่แล้ว!');
 
         echo json_encode($update);
     }
 
+
+    //เริ่มการทำงานในส่วนของ controler หน้า activity log
     function activity_log(){
         $data = array(
-            'formTitle' => 'Activity Log',
-            'title' => 'Activity Log',
+            'formTitle' => 'บันทึกกิจกรรม',
+            'title' => 'บันทึกกิจกรรม',
         );
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
@@ -95,7 +98,7 @@ class Admin extends CI_Controller {
 
     function get_activity_log(){
         $this->ajax_checking();
-        echo  json_encode( $this->admin_model->get_activity_log() );
+        echo  json_encode( $this->admin_model->get_activity_log() );//ไปเรียก model function ที่ชื่อว่า get_activity_log
     }
 
 
