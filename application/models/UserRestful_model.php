@@ -15,6 +15,7 @@ class UserRestful_model extends CI_Model{
     }
 
     public function findById($user_id){
+        $this->db->where('status', 1);//display only status equals one
         $this->db->where('user_id',$user_id);
         return $this->db->get('user')->row();
 

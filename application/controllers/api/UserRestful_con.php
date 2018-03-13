@@ -18,14 +18,7 @@ class UserRestful_con extends REST_Controller{
     }
 
     public function find_get($user_id){
-        if(!empty($user_id)){
-            $this->response($this->UserRestful_model->findById($user_id), REST_Controller::HTTP_OK);
-        }else{
-            $this->response([
-                'status' => FALSE,
-                'message' => 'ไม่พบข้อมูลผู้ใช้งานกรุณาลองใหม่อีกครั้ง'
-            ], REST_Controller::HTTP_NOT_FOUND);
-        }
+        $this->response($this->UserRestful_model->findById($user_id), REST_Controller::HTTP_OK);
         
     }
 
