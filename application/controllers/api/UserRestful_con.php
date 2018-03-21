@@ -23,12 +23,13 @@ class UserRestful_con extends REST_Controller{
     }
 
     public function create_post(){
+    //    public $role ='1';
        $user = array(
            'email' => $this->post('email'),
            'password' => md5($this->post('password')),
            'name' => $this->post('name'),
-           'role' => $this->post('role'),
-           'created_at' => $this->post('created_at'),
+           'role' => '1',
+           'created_at' => '2017-01-12 04:14:51',
        );
        $this->UserRestful_model->insert($user);
     }
@@ -38,7 +39,7 @@ class UserRestful_con extends REST_Controller{
             'email' => $this->put('email'),
             'password' => md5($this->put('password')),
             'name' => $this->put('name'),
-            'role' => $this->put('role'),
+            'role' => $this->put($role),
             'updated_at' => $this->put('updated_at'),
         );
         $this->UserRestful_model->update($this->put('user_id'), $user);
