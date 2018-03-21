@@ -16,6 +16,15 @@
                 </ul>
             </li>
         <?php endif; ?>
+        <?php if($this->session->userdata('role') == 'admin'): ?>
+            <li>
+                <a href="#"><i class="fa fa-file fa-fw"></i> เกล็ดความรู้<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li> <a href="<?=base_url('knowlages/add_knowlages')?>">&raquo; เพิ่มเกล็ดความรู้</a> </li>
+                    <li> <a href="<?=base_url('knowlages/view_knowlages')?>">&raquo; รายการเกล็ดความรู้</a> </li>
+                </ul>
+            </li>
+        <?php endif; ?>
         <li>
             <a href="#"><i class="fa fa-user fa-fw"></i> Other Menu Sample<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
