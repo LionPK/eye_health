@@ -17,19 +17,15 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-file fa-fw"></i> เกล็ดความรู้<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li> <a href="<?=base_url('knowlages/add_knowlages')?>">&raquo; เพิ่มเกล็ดความรู้</a> </li>
-                    <li> <a href="<?=base_url('knowlages/view_knowlages')?>">&raquo; รายการเกล็ดความรู้</a> </li>
-                </ul>
+                <a href='<?=base_url('knowlages/knowlage_list')?>'><i class="fa fa-file fa-fw"></i> เกล็ดความรู้</a>
             </li>
         <?php endif; ?>
 
         <li>
             <a href="#"><i class="fa fa-user fa-fw"></i> Other Menu Sample<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
-                <li> <a href="<?=base_url('test')?>">&raquo; Other Sub Menu 1</a> </li>
-                <li> <a href="#">&raquo; Other Sub Menu 2</a> </li>
+                <li> <a href="<?=base_url('crud/index')?>">&raquo; Other Sub Menu 1</a> </li>
+                <li> <a href="<?=base_url('knowlage')?>">&raquo; Other Sub Menu 2</a> </li>
             </ul>
         </li>
   
