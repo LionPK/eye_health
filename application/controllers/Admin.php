@@ -30,8 +30,8 @@ class Admin extends CI_Controller {
     public function user_list(){
 
         $data = array(
-            'formTitle' => 'การจัดการผู้ใช้งาน',
-            'title' => 'การจัดการผู้ใช้งาน',
+            'formTitle' => 'การจัดการผู้ดูแล',
+            'title' => 'การจัดการผู้ดูแล',
             'users' => $this->admin_model->get_user_list(), //เรียก model function ที่ชื่อว่า get_user_list
         );
 
@@ -72,16 +72,6 @@ class Admin extends CI_Controller {
 
         echo json_encode($update);
     }
-
-    // function reset_user_password($email,$id){
-    //     $this->ajax_checking();
-
-    //     $update = $this->admin_model->reset_user_password($email,$id); //ไปเรียก model function ที่ชื่อว่า reset_user_password
-    //     if($update['status'] == 'success')
-    //         $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$email.' ได้รับการตั้งรหัสผ่านใหม่แล้ว!');
-
-    //     echo json_encode($update);
-    // }
 
 
     //เริ่มการทำงานในส่วนของ controler หน้า activity log

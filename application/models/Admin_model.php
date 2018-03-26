@@ -85,7 +85,6 @@ class Admin_model extends CI_Model {
                 'email' => $postData['email'],
                 'name' => $postData['name'],
                 'surname' => $postData['surname'],
-                // 'role' => $postData['role'],
             );
             $this->db->where('user_id', $postData['id']);
             $this->db->update('user', $data);
@@ -117,27 +116,6 @@ class Admin_model extends CI_Model {
         return array('status' => 'success', 'message' => '');
 
     }
-
-    // function reset_user_password($email,$id){
-
-    //     $password = $this->generate_password();
-    //     $data = array(
-    //         'password' => md5($password),
-    //     );
-    //     $this->db->where('user_id', $id);
-    //     $this->db->update('user', $data);
-
-    //     $message = "รีเซ็ตรหัสผ่านบัญชีของคุณแล้ว<br><br>อีเมล์: ".$email."<br>รหัสผ่านชั่วคราว: ".$password."<br>โปรดเปลี่ยนรหัสผ่านของคุณหลังจากเข้าสู่ระบบ<br><br> คุณสามารถเข้าสู่ระบบได้ที่ ".base_url().".";
-    //     // $subject = "รีเซ็ตรหัสผ่าน";
-    //     $subject = "Password Reset";
-    //     $this->send_email($message,$subject,$email);
-
-    //     $module = "การจัดการผู้ใช้งาน";
-    //     $activity = "รีเซ็ตรหัสผ่านของผู้ใช้งาน ".$email;
-    //     $this->insert_log($activity, $module);
-    //     return array('status' => 'success', 'message' => '');
-
-    // }
 
     function generate_password(){
         $chars = "abcdefghjkmnopqrstuvwxyzABCDEFGHJKMNOPQRSTUVWXYZ023456789!@#$%^&*()_=";

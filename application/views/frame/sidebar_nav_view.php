@@ -19,10 +19,10 @@
 
             <!-- /manage user menu -->
             <li>
-                <a href="#"><i class="fa fa-user fa-fw"></i> ผู้ใช้งานระบบ<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-android fa-fw"></i> ผู้ใช้งานระบบ<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li> <a href="<?=base_url('admin/user_list')?>">&raquo; รายชื่อผู้ใช้งานระบบ</a> </li>
-                    <li> <a href="<?=base_url('admin/activity_log')?>">&raquo; บันทึกกิจกรรม</a> </li>
+                    <li> <a href="<?=base_url('user/users_list')?>">&raquo; รายชื่อผู้ใช้งานระบบ</a> </li>
+                    <li> <a href="<?=base_url('factor/factor_list')?>">&raquo; ข้อมูลปัจจัยนำเข้า </a> </li>
                 </ul>
             </li>
 

@@ -126,7 +126,6 @@
         var surname = $('#surname').val().trim();
         var email = $('#email').val().trim();
         var role = 'admin';
-        // var role = $('#role').val();
 
         if(name == ""){
             $("#error_name").show();
@@ -150,11 +149,6 @@
             $("#error_email3").show();
             i++;
         }
-
-        // if(role == 0){
-        //     $("#error_role").show();
-        //     i++;
-        // }
 
         if(i == 0){
             $.ajax({

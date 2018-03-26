@@ -4,7 +4,7 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
-class Admin extends CI_Controller {
+class User extends CI_Controller {
 
     public function __Construct() {
         parent::__Construct();
@@ -16,7 +16,7 @@ class Admin extends CI_Controller {
             redirect(base_url());
         }
 
-        $this->load->model('admin_model');
+        $this->load->model('user_model');
     }
     
 
@@ -26,57 +26,25 @@ class Admin extends CI_Controller {
         }
     }
     
-    //controller ของหน้า user list
-    public function user_list(){
+    //controller ของหน้า users list
+    public function users_list(){
 
         $data = array(
-            'formTitle' => 'การจัดการผู้ใช้งาน',
-            'title' => 'การจัดการผู้ใช้งาน',
-            'users' => $this->admin_model->get_user_list(), //เรียก model function ที่ชื่อว่า get_user_list
+            'formTitle' => 'การจัดการผู้ใช้งานระบบ',
+            'title' => 'การจัดการผู้ใช้งานระบบ',
+            'users' => $this->user_model->get_users_list(), //เรียก model function ที่ชื่อว่า get_users_list
         );
 
         $this->load->view('frame/header_view');
         $this->load->view('frame/sidebar_nav_view');
-        $this->load->view('admin/user_list', $data);
+        $this->load->view('user/users_list', $data);
 
     }
 
-    function add_user(){
+    function reset_users_password($email,$id){
         $this->ajax_checking();
 
-        $postData = $this->input->post();
-        $insert = $this->admin_model->insert_user($postData); //ไปเรียก model function ที่ชื่อว่า insert_user
-        if($insert['status'] == 'success')
-            $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$postData['email'].' ได้รับการสร้างสำเร็จแล้ว!');
-
-        echo json_encode($insert); //แปลงค่าที่เราส่งให้ (argument) ให้ออกมาเป็น json
-    }
-
-    function update_user_details(){
-        $this->ajax_checking();
-
-        $postData = $this->input->post();
-        $update = $this->admin_model->update_user_details($postData);//ไปเรียก model function ที่ชื่อว่า update_user_details
-        if($update['status'] == 'success')
-            $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$postData['email'].' ได้รับการปรับปรุงรายละเอียดเรียบร้อยแล้ว!');
-
-        echo json_encode($update);
-    }
-
-    function deactivate_user($email,$id){
-        $this->ajax_checking();
-
-        $update = $this->admin_model->deactivate_user($email,$id); //ไปเรียก model function ที่ชื่อว่า deactivate_user
-        if($update['status'] == 'success')
-            $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$email.' ถูกลบเรียบร้อยแล้ว!');
-
-        echo json_encode($update);
-    }
-
-    function reset_user_password($email,$id){
-        $this->ajax_checking();
-
-        $update = $this->admin_model->reset_user_password($email,$id); //ไปเรียก model function ที่ชื่อว่า reset_user_password
+        $update = $this->user_model->reset_users_password($email,$id); //ไปเรียก model function ที่ชื่อว่า reset_users_password
         if($update['status'] == 'success')
             $this->session->set_flashdata('success', 'ผู้ใช้งาน '.$email.' ได้รับการตั้งรหัสผ่านใหม่แล้ว!');
 
@@ -85,21 +53,21 @@ class Admin extends CI_Controller {
 
 
     //เริ่มการทำงานในส่วนของ controler หน้า activity log
-    function activity_log(){
-        $data = array(
-            'formTitle' => 'บันทึกกิจกรรม',
-            'title' => 'บันทึกกิจกรรม',
-        );
-        $this->load->view('frame/header_view');
-        $this->load->view('frame/sidebar_nav_view');
-        $this->load->view('admin/activity_log', $data);
+    // function activity_log(){
+    //     $data = array(
+    //         'formTitle' => 'บันทึกกิจกรรม',
+    //         'title' => 'บันทึกกิจกรรม',
+    //     );
+    //     $this->load->view('frame/header_view');
+    //     $this->load->view('frame/sidebar_nav_view');
+    //     $this->load->view('admin/activity_log', $data);
 
-    }
+    // }
 
-    function get_activity_log(){
-        $this->ajax_checking();
-        echo  json_encode( $this->admin_model->get_activity_log() );//ไปเรียก model function ที่ชื่อว่า get_activity_log
-    }
+    // function get_activity_log(){
+    //     $this->ajax_checking();
+    //     echo  json_encode( $this->admin_model->get_activity_log() );//ไปเรียก model function ที่ชื่อว่า get_activity_log
+    // }
 
 
 
