@@ -45,8 +45,8 @@ if (!defined('BASEPATH')) {
                 $sub_array[] = $row->type;  
                 $sub_array[] = $row->name;
                 $sub_array[] = $row->detail;  
-                $sub_array[] = '<button type="button" name="update" id="'.$row->id_know.'" class="btn btn-warning btn-xs update">Update</button>';  
-                $sub_array[] = '<button type="button" name="delete" id="'.$row->id_know.'" class="btn btn-danger btn-xs delete">Delete</button>';  
+                $sub_array[] = '<button type="button" name="update" id="'.$row->id_know.'" class="btn btn-warning btn-xs update">แก้ไข</button>';  
+                $sub_array[] = '<button type="button" name="delete" id="'.$row->id_know.'" class="btn btn-danger btn-xs delete">ลบ</button>';  
                 $data[] = $sub_array;  
            }
 
@@ -108,7 +108,7 @@ if (!defined('BASEPATH')) {
                 move_uploaded_file($_FILES['knowledge_image']['tmp_name'], $destination);
 
                 return $new_name;  
-           }  
+           } 
       }
       
       //function to fetch single data when user update data to database

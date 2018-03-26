@@ -22,7 +22,7 @@
                                       <tr>  
                                           <th>ภาพ</th>  
                                           <th>ประเภท</th>  
-                                          <th>ชื่อเรื่อง</th>  
+                                          <th>เรื่อง</th>  
                                           <th>เนื้อความ</th>
                                           <th>แก้ไข</th>  
                                           <th>ลบ</th>  
@@ -60,7 +60,7 @@
                           <!-- <label>ประเภท</label>  
                           <input type="text" name="type" id="type" class="form-control" />   -->
                           <div class="form-group">
-                            <label for="typ">กรุณาเลือกประเภท</label>
+                            <label for="typ">กรุณาเลือกประเภท<font color="red">***</font></label>
                             <select type="text" name="type" id="type" class="form-control">
                               <option>ความรู้เกี่ยวกับโรคสายตา</option>
                               <option>ความรู้เกี่ยวกับการรับประทานอาหาร</option>
@@ -70,10 +70,10 @@
                             </select>
                           </div>
                           <br />  
-                          <label>ชื่อเรื่อง</label>  
+                          <label>เรื่อง<font color="red">***</font></label>
                           <input type="text" name="name" id="name" class="form-control" placeholder="กำหนดชื่อหัวเรื่องที่ต้องการ" />  
                           <br />
-                          <label>เนื้อความ</label>  
+                          <label>เนื้อความ<font color="red">***</font></label>
                           <textarea type="text" name="detail" id="detail" class="form-control" placeholder="กำหนดเนื้อหาที่ต้องการ" row="5" ></textarea>  
                           <br />   
                           <label>กรุณาเลือกรูปภาพ</label>  
@@ -146,7 +146,7 @@
            }
 
            //check fields
-           if(type != '' && name != '' && detail != '') {  
+           if(type != '' && name != '' && detail != '' && extension != '') {  
                 $.ajax({  
                      url:"<?php echo base_url() . 'knowledge/knowledge_action'?>",  
                      method:'POST',  
