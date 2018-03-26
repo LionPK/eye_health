@@ -48,8 +48,7 @@ class Admin_model extends CI_Model {
             $data = array(
                 'email' => $postData['email'],
                 'name' => $postData['name'],
-                'surname' => $postData['surname'],
-                'role' => 'admin',
+                'role' => $postData['role'],
                 'password' => md5($password),
                 'created_at' => date('Y\-m\-d\ H:i:s A'),
             );
@@ -84,13 +83,12 @@ class Admin_model extends CI_Model {
             $data = array(
                 'email' => $postData['email'],
                 'name' => $postData['name'],
-                'surname' => $postData['surname'],
-                // 'role' => $postData['role'],
+                'role' => $postData['role'],
             );
             $this->db->where('user_id', $postData['id']);
             $this->db->update('user', $data);
 
-            $record = "(".$oldData[0]['email']." to ".$postData['email'].", ".$oldData[0]['name']." to ".$postData['name'].",".$oldData[0]['surname']." to ".$postData['surname'].")";
+            $record = "(".$oldData[0]['email']." to ".$postData['email'].", ".$oldData[0]['name']." to ".$postData['name'].",".$oldData[0]['role']." to ".$postData['role'].")";
 
             $module = "การจัดการผู้ใช้งาน";
             $activity = "ปรับปรุงผู้ใช้งาน ".$oldData[0]['email']."โดยมีรายละเอียด ".$record;
@@ -118,26 +116,26 @@ class Admin_model extends CI_Model {
 
     }
 
-    // function reset_user_password($email,$id){
+    function reset_user_password($email,$id){
 
-    //     $password = $this->generate_password();
-    //     $data = array(
-    //         'password' => md5($password),
-    //     );
-    //     $this->db->where('user_id', $id);
-    //     $this->db->update('user', $data);
+        $password = $this->generate_password();
+        $data = array(
+            'password' => md5($password),
+        );
+        $this->db->where('user_id', $id);
+        $this->db->update('user', $data);
 
-    //     $message = "รีเซ็ตรหัสผ่านบัญชีของคุณแล้ว<br><br>อีเมล์: ".$email."<br>รหัสผ่านชั่วคราว: ".$password."<br>โปรดเปลี่ยนรหัสผ่านของคุณหลังจากเข้าสู่ระบบ<br><br> คุณสามารถเข้าสู่ระบบได้ที่ ".base_url().".";
-    //     // $subject = "รีเซ็ตรหัสผ่าน";
-    //     $subject = "Password Reset";
-    //     $this->send_email($message,$subject,$email);
+        $message = "รีเซ็ตรหัสผ่านบัญชีของคุณแล้ว<br><br>อีเมล์: ".$email."<br>รหัสผ่านชั่วคราว: ".$password."<br>โปรดเปลี่ยนรหัสผ่านของคุณหลังจากเข้าสู่ระบบ<br><br> คุณสามารถเข้าสู่ระบบได้ที่ ".base_url().".";
+        // $subject = "รีเซ็ตรหัสผ่าน";
+        $subject = "Password Reset";
+        $this->send_email($message,$subject,$email);
 
-    //     $module = "การจัดการผู้ใช้งาน";
-    //     $activity = "รีเซ็ตรหัสผ่านของผู้ใช้งาน ".$email;
-    //     $this->insert_log($activity, $module);
-    //     return array('status' => 'success', 'message' => '');
+        $module = "การจัดการผู้ใช้งาน";
+        $activity = "รีเซ็ตรหัสผ่านของผู้ใช้งาน ".$email;
+        $this->insert_log($activity, $module);
+        return array('status' => 'success', 'message' => '');
 
-    // }
+    }
 
     function generate_password(){
         $chars = "abcdefghjkmnopqrstuvwxyzABCDEFGHJKMNOPQRSTUVWXYZ023456789!@#$%^&*()_=";

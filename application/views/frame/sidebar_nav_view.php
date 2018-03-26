@@ -8,14 +8,25 @@
             <a href="<?=base_url()?>"><i class="fa fa-home fa-fw"></i> แดชบอร์ด</a>
         </li>
         <?php if($this->session->userdata('role') == 'admin'): ?>
+            <!-- /manage admin menu -->
             <li>
                 <a href="#"><i class="fa fa-user fa-fw"></i> ผู้ดูแลระบบ<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li> <a href="<?=base_url('admin/user_list')?>">&raquo; รายชื่อผู้ใช้</a> </li>
+                    <li> <a href="<?=base_url('admin/user_list')?>">&raquo; รายชื่อผู้ดูแล</a> </li>
                     <li> <a href="<?=base_url('admin/activity_log')?>">&raquo; บันทึกกิจกรรม</a> </li>
                 </ul>
             </li>
 
+            <!-- /manage user menu -->
+            <li>
+                <a href="#"><i class="fa fa-user fa-fw"></i> ผู้ใช้งานระบบ<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li> <a href="<?=base_url('admin/user_list')?>">&raquo; รายชื่อผู้ใช้งานระบบ</a> </li>
+                    <li> <a href="<?=base_url('admin/activity_log')?>">&raquo; บันทึกกิจกรรม</a> </li>
+                </ul>
+            </li>
+
+            <!-- /manage knowledge menu -->
             <li>
                 <a href='<?=base_url('knowledge/knowledge_list')?>'><i class="fa fa-file fa-fw"></i> เกล็ดความรู้</a>
             </li>

@@ -7,13 +7,13 @@
         $("#error_email3").hide();
         $("#error_name").hide();
         $("#error_name2").hide();
-        $("#error_role").hide();
+        $("#error_surname").hide();
         $("#edit-error_email").hide();
         $("#edit-error_email2").hide();
         $("#edit-error_email3").hide();
         $("#edit-error_name").hide();
         $("#edit-error_name2").hide();
-        $("#edit-error_role").hide();
+        $("#edit-error_surname").hide();
         hide_loading();
     }
 
@@ -29,27 +29,17 @@
         });
      } );
 
-    function edit_user_popup(email,id,name,role){
+    function edit_user_popup(email,id,name,surname){
         $( "#edit-email" ).val(email);
         $( "#edit-user-id" ).val(id);
         $( "#edit-name" ).val(name);
-        if(role=='admin')
-            roleOption = "<option value='admin' selected>Admin</option><option value='user'>User</option>";
-        else
-            roleOption = "<option value='admin'>Admin</option><option value='user' selected>User</option>";
-
-        $( "#edit-role" ).html(roleOption);
+        $( "#edit-surname" ).val(surname);
         $('#editUserSubmit').attr("onclick","update_user_details("+id+")");
     }
 
     function deactivate_confirmation(email,id){
         $( "#user-email" ).html(email);
         $('#deactivateYesButton').attr("onclick","deactivate_submit('"+email+"',"+id+")");
-    }
-
-    function reset_confirmation(email,id){
-        $( "#reset-user-email" ).html(email);
-        $('#resetYesButton').attr("onclick","reset_submit('"+email+"',"+id+")");
     }
 
     function deactivate_submit(email,id){
@@ -63,25 +53,7 @@
                     location.reload();
                 }
                 else{
-                    alert("Oops there is something wrong!");
-                }
-            },
-            error: ajax_error_handling
-        });
-    }
-
-    function reset_submit(email,id){
-        show_loading();
-            $.ajax({
-            url: $("#base-url").val()+"admin/reset_user_password/"+email+"/"+id,
-            cache: false,
-            success: function (result) {
-                var result = $.parseJSON(result);
-                if(result.status=='success'){
-                    location.reload();
-                }
-                else{
-                    alert("Oops there is something wrong!");
+                    alert("มีบางอย่างผิดปกติ!");
                 }
             },
             error: ajax_error_handling
@@ -93,9 +65,8 @@
         show_loading();
         var i=0;
         var name = $('#edit-name').val().trim();
+        var surname = $('#edit-surname').val().trim();
         var email = $('#edit-email').val().trim();
-        var role = $('#edit-role').val();
-
 
         if(name == ""){
             $("#edit-error_name").show();
@@ -103,6 +74,11 @@
         }
         else if (!name.match(/^[A-Za-z0-9\s]+$/)) {
             $("#edit-error_name2").show();
+            i++;
+        }
+
+        if(name == ""){
+            $("#edit-error_surname").show();
             i++;
         }
 
@@ -115,18 +91,13 @@
             i++;
         }
 
-        if(role == 0){
-            $("#edit-error_role").show();
-            i++;
-        }
-
         if(i == 0){
             $.ajax({
                 url: $("#base-url").val()+"admin/update_user_details/",
                 traditional: true,
                 type: "post",
                 dataType: "text",
-                data: {email: email, id:id, name:name, role:role},
+                data: {email: email, id:id, name:name, surname:surname},
                 success: function (result) {
                     var result = $.parseJSON(result);
                     if(result.status=='success'){
@@ -137,7 +108,7 @@
                         hide_loading();
                     }
                     else{
-                        alert("Oops there is something wrong!");
+                        alert("มีบางอย่างผิดปกติ!");
                     }
                 },
                 error: ajax_error_handling
@@ -147,16 +118,15 @@
 
 
 
-
-
-
     $( "#newUserSubmit" ).click(function() {
         hideErrorMessages();
         show_loading();
         var i=0;
         var name = $('#name').val().trim();
+        var surname = $('#surname').val().trim();
         var email = $('#email').val().trim();
-        var role = $('#role').val();
+        var role = 'admin';
+        // var role = $('#role').val();
 
         if(name == ""){
             $("#error_name").show();
@@ -164,6 +134,11 @@
         }
         else if (!name.match(/^[A-Za-z0-9\s]+$/)) {
             $("#error_name2").show();
+            i++;
+        }
+
+        if(surname == ""){
+            $("#error_surname").show();
             i++;
         }
 
@@ -176,10 +151,10 @@
             i++;
         }
 
-        if(role == 0){
-            $("#error_role").show();
-            i++;
-        }
+        // if(role == 0){
+        //     $("#error_role").show();
+        //     i++;
+        // }
 
         if(i == 0){
             $.ajax({
@@ -187,7 +162,7 @@
                 traditional: true,
                 type: "post",
                 dataType: "text",
-                data: {email:email, role:role, name:name},
+                data: {email:email, role:role, name:name, surname:surname},
                 success: function (result) {
                     var result = $.parseJSON(result);
                     if(result.status=='success'){
@@ -198,7 +173,7 @@
                         hide_loading();
                     }
                     else{
-                        alert("Oops there is something wrong!");
+                        alert("มีบางอย่างผิดปกติ!");
                     }
                   
                 },

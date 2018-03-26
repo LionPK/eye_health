@@ -60,7 +60,7 @@
                           <!-- <label>ประเภท</label>  
                           <input type="text" name="type" id="type" class="form-control" />   -->
                           <div class="form-group">
-                            <label for="typ">กรุณาเลือกประเภท<font color="red">***</font></label>
+                            <label for="typ">กรุณาเลือกประเภท<font color="red"> ***</font></label>
                             <select type="text" name="type" id="type" class="form-control">
                               <option>ความรู้เกี่ยวกับโรคสายตา</option>
                               <option>ความรู้เกี่ยวกับการรับประทานอาหาร</option>
@@ -70,13 +70,13 @@
                             </select>
                           </div>
                           <br />  
-                          <label>เรื่อง<font color="red">***</font></label>
+                          <label>เรื่อง<font color="red"> ***</font></label>
                           <input type="text" name="name" id="name" class="form-control" placeholder="กำหนดชื่อหัวเรื่องที่ต้องการ" />  
                           <br />
-                          <label>เนื้อความ<font color="red">***</font></label>
+                          <label>เนื้อความ<font color="red"> ***</font></label>
                           <textarea type="text" name="detail" id="detail" class="form-control" placeholder="กำหนดเนื้อหาที่ต้องการ" row="5" ></textarea>  
                           <br />   
-                          <label>กรุณาเลือกรูปภาพ</label>  
+                          <label>กรุณาเลือกรูปภาพ<font color="red"> ***</font></label>  
                           <input type="file" name="knowledge_image" id="knowledge_image" />  
                           <span id="knowledge_uploaded_image"></span>  
                      </div>  
