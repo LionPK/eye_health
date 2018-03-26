@@ -17,7 +17,7 @@
             </li>
 
             <li>
-                <a href='<?=base_url('knowlages/knowlage_list')?>'><i class="fa fa-file fa-fw"></i> เกล็ดความรู้</a>
+                <a href='<?=base_url('knowledge/knowledge_list')?>'><i class="fa fa-file fa-fw"></i> เกล็ดความรู้</a>
             </li>
         <?php endif; ?>
 

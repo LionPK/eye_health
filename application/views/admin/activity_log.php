@@ -61,7 +61,7 @@
                 "bServerSide": true,
                 "sServerMethod": "GET",
                 "sAjaxSource": $("#base-url").val()+"admin/get_activity_log",
-                "iDisplayLength": 50,
+                "iDisplayLength": 10,
                 "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "aaSorting": [[0, 'desc']],
                 "aoColumns": [
