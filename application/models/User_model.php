@@ -22,31 +22,31 @@ class User_model extends CI_Model {
     function get_user_by_id($userID){
         $this->db->select('*');
         $this->db->from('users');
-        $this->db->where('id_user', $userID);
+        $this->db->where('id', $userID);
         $query=$this->db->get();
         return $query->result_array();
     }
 
-    function validate_email($postData){
-        $this->db->where('email', $postData['email']);
-        $this->db->where('status', 1);
-        $this->db->from('users');
-        $query=$this->db->get();
+    // function validate_email($postData){
+    //     $this->db->where('email', $postData['email']);
+    //     $this->db->where('status', 1);
+    //     $this->db->from('users');
+    //     $query=$this->db->get();
 
-        if ($query->num_rows() == 0)
-            return true;
-        else
-            return false;
-    }
+    //     if ($query->num_rows() == 0)
+    //         return true;
+    //     else
+    //         return false;
+    // }
 
 
     function reset_users_password($email,$id){
 
         $password = $this->generate_password();
         $data = array(
-            'password' => md5($password),
+            'encrypted_password' => md5($password),
         );
-        $this->db->where('id_user', $id);
+        $this->db->where('id', $id);
         $this->db->update('users', $data);
 
         $message = "รีเซ็ตรหัสผ่านบัญชีของคุณแล้ว<br><br>อีเมล์: ".$email."<br>รหัสผ่านชั่วคราว: ".$password."<br>โปรดเปลี่ยนรหัสผ่านของคุณหลังจากเข้าสู่ระบบ<br><br> คุณสามารถเข้าสู่ระบบได้ที่ ".base_url().".";
@@ -66,6 +66,20 @@ class User_model extends CI_Model {
         $password = substr( str_shuffle( $chars ), 0, 10 );
 
         return $password;
+    }
+
+        /**
+     * Encrypting password
+     * @param password
+     * returns salt and encrypted password
+     */
+    public function hashSSHA($password) {
+ 
+        $salt = sha1(rand());
+        $salt = substr($salt, 0, 10);
+        $encrypted = base64_encode(sha1($password . $salt, true) . $salt);
+        $hash = array("salt" => $salt, "encrypted" => $encrypted);
+        return $hash;
     }
 
     // function insert_log($activity, $module){

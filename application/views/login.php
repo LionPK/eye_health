@@ -42,7 +42,10 @@
 				<!--created form login-->
 				<form class="login100-form validate-form" role="form" method="post" onsubmit="return checkEmptyInput();" action="<?=base_url()?>authentication/login/">
 					<span class="login100-form-title p-b-26">
-						ยินดีต้อนรับ
+						AEHE SYSTEM
+					</span>
+					<span class="login100-form-title p-b-26">
+						ยินดีต้อนรับผู้ดูแลระบบ
 					</span>
 					<span class="login100-form-title p-b-48">
                         <img src="<?=base_url()?>assets/images/icons/eyeSuggestionLogo.png" alt="Eye impact" width="62" height="56">
@@ -89,10 +92,6 @@
 							</div>
 							</div>
 						</div>
-					</div>
-					<div class="text-center p-t-115">
-						<small><a href="#" data-toggle="modal" data-target="#forgot">เปลี่ยนรหัสผ่าน?</a></small>
-                        <!-- <small><a href="#" onclick="alert('โปรดติดต่อผู้ดูแลระบบเพื่อรีเซ็ตรหัสผ่านของคุณ!')">ลืมรหัสผ่าน?</a></small> -->
 					</div>
 				</form>
 			</div>

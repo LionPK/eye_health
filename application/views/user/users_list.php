@@ -36,7 +36,7 @@
                                 <td><?php echo $row->surname; ?></td> 
                                 <td><?php echo $row->email; ?></td> 
                                 <td>
-                                    <a class="btn btn-warning btn-xs" id="users-riset" onclick="reset_confirmation('<?=$row->email?>','<?=$row->id_user?>')" data-toggle="modal" data-target="#resetConfirm"> รีเซ็ต </a>                                    
+                                    <a class="btn btn-warning btn-xs" id="users-riset" onclick="reset_confirmation('<?=$row->email?>','<?=$row->id?>')" data-toggle="modal" data-target="#resetConfirm"> รีเซ็ต </a>                                    
                                 </td>
 
                             </tr>
