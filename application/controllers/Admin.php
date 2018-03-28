@@ -73,7 +73,6 @@ class Admin extends CI_Controller {
         echo json_encode($update);
     }
 
-
     //เริ่มการทำงานในส่วนของ controler หน้า activity log
     function activity_log(){
         $data = array(

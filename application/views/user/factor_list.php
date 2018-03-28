@@ -22,7 +22,7 @@
                                       <tr>  
                                           <th>เพศ</th>  
                                           <th>อายุ</th>  
-                                          <th>ข้อมูลสุขภาพ</th>  
+                                          <th>ข้อมูลสุขภาพตา</th>  
                                       </tr>  
                                 </thead>  
                             </table>  
@@ -44,22 +44,24 @@
 <!-- /.row -->
 </div>
 
+
 <!-- /#page-wrapper -->
 <?php $this->load->view('frame/footer_view') ?>
-
-<script type="text/javascript" language="javascript" >
- $(document).ready(function() {   
+<script type="text/javascript" language="javascript" >  
+ $(document).ready(function() {
+      //load knowledge data to table from function fetch_knowledge
       var dataTable = $('#factor_data').DataTable({  
            "processing":true,  
            "serverSide":true,  
            "order":[],  
-           "ajax": {  
+           "ajax":{  
                 url:"<?php echo base_url() . 'factor/fetch_factor'; ?>",  
                 type:"POST"  
            },  
            "columnDefs":[  
                 {  
-                     "targets":[0, 3, 4],  
+                    //Disable or enable sorting on
+                     "targets":[2],  
                      "orderable":false,  
                 },  
            ],  
