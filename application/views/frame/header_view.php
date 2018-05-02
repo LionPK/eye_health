@@ -101,7 +101,7 @@
                                 <div class="form-group">
                                     <label>รหัสผ่านปัจจุบัน</label> &nbsp;&nbsp;
                                     <label class="error" id="error_currentPassword"> ต้องระบุ</label>
-                                    <input class="form-control" id="currentPassword" placeholder="Current Password" name="currentPassword" type="password" autofocus>
+                                    <input minlength=8 maxlength=11 class="form-control" id="currentPassword" placeholder="Ab#12348" name="currentPassword" type="password" autofocus>
                                 </div> 
                             </div>
                         </div>
@@ -111,13 +111,13 @@
                                     <label>รหัสผ่านใหม่</label> &nbsp;&nbsp;
                                     <label class="error" id="error_newPassword"> ต้องระบุ</label>
                                     <label class="error" id="error_newPassword2"> รหัสผ่านไม่ตรงกัน</label>
-                                    <input class="form-control" id="newPassword" placeholder="New Password" name="newPassword" type="password" autofocus>
+                                    <input minlength=8 maxlength=11 class="form-control" id="newPassword" placeholder="P@ssword1" name="newPassword" type="password" autofocus>
                                 </div> 
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>ยืนยันรหัสผ่านใหม่</label> &nbsp;&nbsp;
-                                    <input class="form-control" id="confirmNewPassword" placeholder="Confirm New Password" name="confirmNewPassword" type="password" autofocus>
+                                    <input minlength=8 maxlength=11 class="form-control" id="confirmNewPassword" placeholder="P@ssword1" name="confirmNewPassword" type="password" autofocus>
                                 </div> 
                             </div>
                       </div>

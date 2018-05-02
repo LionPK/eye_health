@@ -68,7 +68,7 @@ if (!defined('BASEPATH')) {
                 'type'          =>     $this->input->post('type'),  
                 'name'               =>     $this->input->post("name"),
                 'detail'               =>     $this->input->post("detail"), 
-                'image'                    =>     $this->upload_image()  
+                'image'                    =>     $this -> base_url() .'upload/'. $uploadData['upload_image']
             ); 
                 
                 // $this->load->model('knowledge_model');  
@@ -80,7 +80,7 @@ if (!defined('BASEPATH')) {
            if($_POST["operation"] == "Edit") {  
                 $knowledge_image = '';  
                 if($_FILES["knowledge_image"]["name"] != '') {  
-                     $knowledge_image = $this->upload_image();
+                     $knowledge_image = $this -> base_url() .'upload/'. $uploadData['upload_image'];
 
                 }else {  
                      $knowledge_image = $this->input->post("hidden_knowledge_image");  

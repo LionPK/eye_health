@@ -35,11 +35,13 @@
         }
     });
 
+    //custom hide message label
     function hideErrorChangePasswordMessages(){
         $("#error_changePassword").hide();
         $("#error_currentPassword").hide();
         $("#error_newPassword").hide();
         $("#error_newPassword2").hide();
+        $("#error_newPassword3").hide();
         $("#error_changePassword2").hide();
         hide_loading();
     }

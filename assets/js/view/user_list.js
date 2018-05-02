@@ -1,4 +1,4 @@
-    
+//    
     window.onload = hideErrorMessages();
 
     function hideErrorMessages(){

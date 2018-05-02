@@ -49,7 +49,7 @@
 <?php $this->load->view('frame/footer_view') ?>
 <script type="text/javascript" language="javascript" >  
  $(document).ready(function() {
-      //load knowledge data to table from function fetch_knowledge
+      //load knowledge data to table from function fetch_factor
       var dataTable = $('#factor_data').DataTable({  
            "processing":true,  
            "serverSide":true,  

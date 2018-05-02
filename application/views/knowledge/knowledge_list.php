@@ -75,10 +75,13 @@
                           <input type="text" name="name" id="name" class="form-control" placeholder="กำหนดชื่อหัวเรื่องที่ต้องการ" />  
                           <br />
                           <label>เนื้อความ<font color="red"> *</font></label>
-                          <!-- <textarea type="text" name="detail" id="detail" class="form-control" placeholder="กำหนดเนื้อหาที่ต้องการ" row="5" ></textarea>   -->
-                            <textarea name="detail" id="detail">
-                                
-                            </textarea>
+                          <textarea type="text" name="detail" id="detail" class="form-control" placeholder="กำหนดเนื้อหาที่ต้องการ" row="5" ></textarea>  
+                            <!-- <textarea name="detail" id="detail">                                                 
+                                <?php $query = mysqli_query($con, "SELECT * FROME knowledge WHERE id ='$knowledge_id'");
+                                    $row = mysqli_fetch_array($query);
+                                ?>
+                                <?= $row['detail'];?>
+                            </textarea> -->
                           <br />
                           <label>กรุณาเลือกรูปภาพ<font color="red"> *</font></label>  
                           <input type="file" name="knowledge_image" id="knowledge_image" />  
@@ -105,6 +108,7 @@
 <?php $this->load->view('frame/footer_view') ?>
 <script type="text/javascript" language="javascript" >  
  $(document).ready(function() {
+
     tinymce.init({
     selector: '#detail',
     height: 500,
@@ -195,7 +199,7 @@
                      $('#knowledgeModal').modal('show');  
                      $('#type').val(data.type);  
                      $('#name').val(data.name);
-                     $('#detail').val(data.detail);  
+                     $('#detail').html(data.detail); 
                      $('.modal-title').text("แก้ไขข้อมูลเกล็ดความรู้");  
                      $('#knowledge_id').val(knowledge_id);  
                      $('#knowledge_uploaded_image').html(data.knowledge_image);  

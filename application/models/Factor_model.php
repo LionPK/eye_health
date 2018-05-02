@@ -1,15 +1,15 @@
 <?php  
  class Factor_model extends CI_Model {  
       var $table = "import_factor";  
-      var $select_column = array("id_factor", "sex", "age","detail");  
-      var $order_column = array(null, "sex", "age","detail");
+      var $select_column = array("id_factor","sex", "age","detail");  
+      var $order_column = array("sex", "age","detail");
 
       //function query
       function make_query() {  
            $this->db->select($this->select_column);  
            $this->db->from($this->table); 
 
-           //function search data base on type and name
+           //function search data base on age and detail
            if(isset($_POST["search"]["value"])) {  
                 $this->db->like("age", $_POST["search"]["value"]);  
                 $this->db->or_like("detail", $_POST["search"]["value"]);  
@@ -48,29 +48,4 @@
 
            return $this->db->count_all_results();  
       }
-
-      //function insert data to database
-      function insert_knowledge($data) {  
-           $this->db->insert('knowledge', $data);  
-      }
-      
-      //function fetch single knowledge by knowledge id
-      function fetch_single_knowledge($knowledge_id) {  
-           $this->db->where("id_know", $knowledge_id);  
-           $query=$this->db->get('knowledge');  
-           return $query->result();  
-      }
-      
-      //function update data
-      function update_knowledge($knowledge_id, $data) {  
-           $this->db->where("id_know", $knowledge_id);  
-           $this->db->update("knowledge", $data);  
-      }
-      
-      //function delete
-      function delete_single_knowledge($knowledge_id) {  
-           $this->db->where("id_know", $knowledge_id);  
-           $this->db->delete("knowledge");  
-           //DELETE FROM knowledge WHERE id_know = '$knowledge_id'  
-      }  
  }  
