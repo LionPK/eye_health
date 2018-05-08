@@ -63,6 +63,7 @@ if (!defined('BASEPATH')) {
       //function add and update knowledge by operation that we custom
       function knowledge_action() {
           //system enter if operation when user click on add  
+<<<<<<< HEAD
            if($_POST["operation"] == "Add") {
             $insert_data = array(  
                 'type'          =>     $this->input->post('type'),  
@@ -71,6 +72,15 @@ if (!defined('BASEPATH')) {
                 'image'                    =>     $this -> base_url() .'upload/'. $uploadData['upload_image']
             ); 
                 
+=======
+           if($_POST["operation"] == "Add") {  
+                $insert_data = array(  
+                     'type'          =>     $this->input->post('type'),  
+                     'name'               =>     $this->input->post("name"),
+                     'detail'               =>     $this->input->post("detail"), 
+                     'image'                    =>     $this->upload_image()  
+                );  
+>>>>>>> parent of 9a43629... update factor page
                 // $this->load->model('knowledge_model');  
                 $this->knowledge_model->insert_knowledge($insert_data);  
                 echo 'บันทึกข้อมูลสำเร็จแล้ว';  
@@ -102,14 +112,14 @@ if (!defined('BASEPATH')) {
       
       //function upload image to database
       function upload_image() {  
-           if(isset($_FILES["knowledge_image"])) { 
-                $extension = explode('.', $_FILES['knowledge_image']['name']);
-                $new_name = rand() . '.' . $extension[1];
+           if(isset($_FILES["knowledge_image"])) {  
+                $extension = explode('.', $_FILES['knowledge_image']['name']);  
+                $new_name = rand() . '.' . $extension[1];  
                 $destination = './upload/' . $new_name;  
-                move_uploaded_file($_FILES['knowledge_image']['tmp_name'], $destination);          
+                move_uploaded_file($_FILES['knowledge_image']['tmp_name'], $destination);
 
                 return $new_name;  
-           }
+           } 
       }
       
       //function to fetch single data when user update data to database

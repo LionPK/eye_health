@@ -1,12 +1,12 @@
     $(document).ready( function () {
-        // $('#dataTables-user-log').DataTable();
+        //$('#dataTables-user-log').DataTable();
         $('#dataTables-user-list').DataTable({
             "bFilter": true,
             "paging":   false,
 
-            // "iDisplayLength": 20,
+            //"iDisplayLength": 20,
             "order": [[ 0, "asc" ]]
-            // "bDestroy": true,
+            //"bDestroy": true,
         });
      } );
 

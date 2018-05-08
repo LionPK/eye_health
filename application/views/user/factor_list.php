@@ -22,7 +22,7 @@
                                       <tr>  
                                           <th>เพศ</th>  
                                           <th>อายุ</th>  
-                                          <th>ข้อมูลสุขภาพตา</th>  
+                                          <th>ข้อมูลสุขภาพ</th>  
                                       </tr>  
                                 </thead>  
                             </table>  
@@ -44,24 +44,28 @@
 <!-- /.row -->
 </div>
 
-
 <!-- /#page-wrapper -->
 <?php $this->load->view('frame/footer_view') ?>
+<<<<<<< HEAD
 <script type="text/javascript" language="javascript" >  
  $(document).ready(function() {
       //load knowledge data to table from function fetch_factor
+=======
+
+<script type="text/javascript" language="javascript" >
+ $(document).ready(function() {   
+>>>>>>> parent of 9a43629... update factor page
       var dataTable = $('#factor_data').DataTable({  
            "processing":true,  
            "serverSide":true,  
            "order":[],  
-           "ajax":{  
+           "ajax": {  
                 url:"<?php echo base_url() . 'factor/fetch_factor'; ?>",  
                 type:"POST"  
            },  
            "columnDefs":[  
                 {  
-                    //Disable or enable sorting on
-                     "targets":[2],  
+                     "targets":[0, 3, 4],  
                      "orderable":false,  
                 },  
            ],  

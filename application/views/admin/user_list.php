@@ -25,10 +25,8 @@
                     <table class="table table-bordered table-responsive" style="margin-top: 20px;">
                         <thead>
                             <tr>
-                                <th>วัน & เวลา</th>
                                 <th>ชื่อ</th>
                                 <th>นามสกุล</th>
-                                <th>บทบาท</th>
                                 <th>อีเมล์</th>
                                 <th>&nbsp;</th>
                             </tr>
@@ -36,10 +34,8 @@
                         <tbody>
                             <?php foreach($users  as $row): ?>
                             <tr>
-                                <td><?php echo $row->created_at; ?></td>
                                 <td><?php echo $row->name; ?></td>
-                                <td><?php echo $row->surname; ?></td>
-                                <td><?php echo $row->role; ?></td>  
+                                <td><?php echo $row->surname; ?></td> 
                                 <td><?php echo $row->email; ?></td>
                                 
                                 <td>

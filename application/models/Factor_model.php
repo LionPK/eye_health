@@ -1,8 +1,13 @@
 <?php  
  class Factor_model extends CI_Model {  
       var $table = "import_factor";  
+<<<<<<< HEAD
       var $select_column = array("id_factor","sex", "age","detail");  
       var $order_column = array("sex", "age","detail");
+=======
+      var $select_column = array("id_factor", "sex", "age","detail");  
+      var $order_column = array(null, "sex", "age","detail", null);
+>>>>>>> parent of 9a43629... update factor page
 
       //function query
       function make_query() {  
@@ -11,8 +16,8 @@
 
            //function search data base on age and detail
            if(isset($_POST["search"]["value"])) {  
-                $this->db->like("age", $_POST["search"]["value"]);  
-                $this->db->or_like("detail", $_POST["search"]["value"]);  
+                $this->db->like("sex", $_POST["search"]["value"]);  
+                $this->db->or_like("age", $_POST["search"]["value"]);  
            }
 
            if(isset($_POST["order"])) {  
@@ -33,7 +38,6 @@
 
            return $query->result();  
       } 
-      
       
       function get_filtered_data() {  
            $this->make_query();  
