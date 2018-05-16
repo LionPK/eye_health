@@ -1,3 +1,4 @@
+<script src='<?=base_url()?>assets/tinymce/tinymce.min.js'></script>
 <div id="page-wrapper">
 <div class="row">
     <div class="col-lg-12">
@@ -60,7 +61,7 @@
                           <!-- <label>ประเภท</label>  
                           <input type="text" name="type" id="type" class="form-control" />   -->
                           <div class="form-group">
-                            <label for="typ">กรุณาเลือกประเภท<font color="red"> ***</font></label>
+                            <label for="typ">กรุณาเลือกประเภท<font color="red"> *</font></label>
                             <select type="text" name="type" id="type" class="form-control">
                               <option>ความรู้เกี่ยวกับโรคสายตา</option>
                               <option>ความรู้เกี่ยวกับการรับประทานอาหาร</option>
@@ -70,10 +71,9 @@
                             </select>
                           </div>
                           <br />  
-                          <label>เรื่อง<font color="red"> ***</font></label>
+                          <label>เรื่อง<font color="red"> *</font></label>
                           <input type="text" name="name" id="name" class="form-control" placeholder="กำหนดชื่อหัวเรื่องที่ต้องการ" />  
                           <br />
-<<<<<<< HEAD
                           <label>เนื้อความ<font color="red"> *</font></label>
                           <textarea type="text" name="detail" id="detail" class="form-control" placeholder="กำหนดเนื้อหาที่ต้องการ" row="5" ></textarea>  
                             <!-- <textarea name="detail" id="detail">                                                 
@@ -84,17 +84,11 @@
                             </textarea> -->
                           <br />
                           <label>กรุณาเลือกรูปภาพ<font color="red"> *</font></label>  
-=======
-                          <label>เนื้อความ<font color="red"> ***</font></label>
-                          <textarea type="text" name="detail" id="detail" class="form-control" placeholder="กำหนดเนื้อหาที่ต้องการ" row="5" ></textarea>  
-                          <br />   
-                          <label>กรุณาเลือกรูปภาพ<font color="red"> ***</font></label>  
->>>>>>> parent of 9a43629... update factor page
                           <input type="file" name="knowledge_image" id="knowledge_image" />  
                           <span id="knowledge_uploaded_image"></span>  
                      </div>  
                      <div class="modal-footer">  
-                          <input type="hidden" name="knowledge_id" id="knowledge_id" />
+                          <!--<input type="hidden" name="knowledge_id" id="knowledge_id" />-->
                           <input type="hidden" name="operation" id="operation" />  
                           <input type="submit" name="action" id="action" class="btn btn-success" value="เพิ่ม" />  
                           <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>  
@@ -112,9 +106,7 @@
 
 <!-- /#page-wrapper -->
 <?php $this->load->view('frame/footer_view') ?>
-
 <script type="text/javascript" language="javascript" >  
-<<<<<<< HEAD
  $(document).ready(function() {
 
     tinymce.init({
@@ -132,9 +124,6 @@
     image_advtab: true
 });
  
-=======
- $(document).ready(function() { 
->>>>>>> parent of 9a43629... update factor page
    //when click button add system reset form to empty and custom operation to Add 
       $('#add_button').click(function() {  
            $('#knowledge_form')[0].reset();  
@@ -179,7 +168,7 @@
            }
 
            //check fields
-           if(type != '' && name != '' && detail != '' && extension != '') {  
+           if(type != '' && name != '' && detail != '') {  
                 $.ajax({  
                      url:"<?php echo base_url() . 'knowledge/knowledge_action'?>",  
                      method:'POST',  
